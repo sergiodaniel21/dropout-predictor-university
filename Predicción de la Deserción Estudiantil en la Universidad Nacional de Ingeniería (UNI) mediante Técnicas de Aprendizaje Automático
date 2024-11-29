@@ -1,0 +1,41 @@
+Introducción
+En la actualidad, el análisis de datos se ha convertido en una herramienta clave para abordar problemas complejos en diversos sectores, entre ellos la educación superior. La deserción estudiantil, en particular, representa un desafío crítico para las universidades, ya que afecta no solo a los estudiantes, sino también a la calidad educativa y a los indicadores institucionales. En este contexto, predecir de manera precisa el estado académico de los estudiantes puede proporcionar una base sólida para implementar estrategias efectivas de retención y apoyo.
+Este artículo presenta un enfoque basado en técnicas de aprendizaje automático para predecir si un estudiante de la Universidad Nacional de Ingeniería (UNI) en Perú se graduará, desertará o continuará matriculado en su carrera universitaria. Para ello, se emplea un conjunto de datos que incluye características socioeconómicas, académicas y demográficas de los estudiantes, como el estado civil, región de procedencia, nivel educativo de los padres, notas promedio y modalidad de ingreso, entre otras. Este análisis tiene como objetivo identificar patrones y factores que influyen en la trayectoria académica de los estudiantes, permitiendo desarrollar intervenciones más personalizadas.
+La metodología aplicada sigue el estándar CRISP-DM, abarcando desde la selección y preprocesamiento del conjunto de datos hasta la implementación y evaluación de modelos de aprendizaje supervisado. Los algoritmos utilizados incluyen Árboles de Decisión, Máquinas de Soporte Vectorial (SVM) y Random Forest, seleccionados por su capacidad de manejar datos heterogéneos y generar predicciones interpretables. Las métricas empleadas para evaluar el rendimiento de los modelos incluyen precisión, recall y F1-score.
+El resultado de este estudio no solo permite evaluar la efectividad de diferentes técnicas de clasificación, sino también ofrece una herramienta predictiva que podría contribuir al diseño de políticas académicas orientadas a reducir la deserción estudiantil y optimizar el proceso educativo en el contexto de la educación superior en el Perú.
+
+Metodología
+El proyecto se desarrolló siguiendo la metodología CRISP-DM (Cross-Industry Standard Process for Data Mining), implementada íntegramente en la plataforma KNIME. Este marco proporcionó un enfoque estructurado y flexible para abordar el problema de predicción del estado académico de los estudiantes de la Universidad Nacional de Ingeniería (UNI). A continuación, se describen las etapas realizadas:
+
+1. Comprensión del problema
+El objetivo principal fue predecir si un estudiante se graduará, desertará o continuará matriculado en su carrera universitaria. Este análisis busca identificar patrones y factores relevantes que puedan ser utilizados por la UNI para implementar estrategias de retención estudiantil efectivas.
+
+2. Comprensión de los datos
+El conjunto de datos incluye información relevante de estudiantes de la UNI, con las siguientes variables:
+Datos demográficos: región de nacimiento, región de residencia, sexo, estado civil, y año de nacimiento.
+Contexto familiar: nivel educativo de la madre y del padre.
+Información académica: promedio de notas, modalidad de ingreso, facultad, especialidad, ciclo relativo, y necesidades educativas especiales.
+Variable objetivo: estado académico (graduado, desertado, matriculado).
+Se realizó un análisis exploratorio inicial utilizando histogramas y gráficos de barras en KNIME para comprender la distribución de las variables y detectar desequilibrios en las clases del conjunto de datos.
+
+3. Preparación de los datos
+Se implementaron los siguientes pasos en KNIME para garantizar la calidad de los datos:
+Limpieza de datos:
+Tratamiento de valores faltantes mediante imputación (media para variables numéricas y moda para categóricas).
+Eliminación de registros duplicados.
+Identificación y manejo de outliers a través de gráficos de cajas (boxplots).
+Transformación de datos:
+Codificación de variables categóricas mediante one-hot encoding.
+Estandarización de variables numéricas para normalizar las escalas.
+Balanceo de clases:
+Dado que las clases del conjunto de datos estaban desbalanceadas (con predominio de estudiantes matriculados sobre desertados y graduados), se utilizó el método SMOTE (Synthetic Minority Oversampling Technique). Este procedimiento generó ejemplos sintéticos para equilibrar las clases y mejorar el rendimiento de los modelos supervisados.
+
+4. División de los datos
+El conjunto de datos fue dividido en un 70% para entrenamiento y un 30% para prueba utilizando el nodo Partitioning de KNIME. Esta proporción permitió entrenar los modelos con una muestra amplia y evaluarlos de manera efectiva en datos no vistos.
+
+5. Modelado
+Se seleccionaron tres algoritmos de clasificación supervisada para abordar el problema:
+Árboles de Decisión: para generar reglas claras e interpretables que expliquen las predicciones.
+Máquinas de Soporte Vectorial (SVM): por su capacidad para separar clases de manera efectiva, incluso en datos complejos.
+Random Forest: por su robustez ante sobreajuste y su capacidad para manejar datos con múltiples variables y clases.
+Los modelos fueron entrenados y validados en KNIME. La evaluación se realizó utilizando los datos balanceados generados por SMOTE.
